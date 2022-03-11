@@ -1,11 +1,10 @@
 #include <iostream>
 using namespace std;
-
 struct sinhvien
 {
     /* data */
-    char TEN[20];
-    char MSSV[8];
+    char TEN[24];
+    char MSSV[10];
     float DTB;
 };
 typedef struct sinhvien SINHVIEN;
@@ -13,7 +12,7 @@ struct node
 {
     /* data */
     SINHVIEN info;
-    NODE* pNext;
+    struct node* pNext;
 };
 typedef struct node NODE;
 struct list
@@ -25,10 +24,9 @@ struct list
 typedef struct list LIST;
 void Init(LIST& l);
 int IsEmpty(LIST& l, NODE* p);
-NODE* GetNode(int x);
+NODE* GetNode(SINHVIEN x);
 void AddHead(LIST& l, NODE* p);
 void AddTail(LIST& l, NODE* p);
 void Input(LIST& l);
 void Ouput(LIST l);
-int Presence(char ten[20], char mssv[8]);
-
+void Presence(LIST l);
