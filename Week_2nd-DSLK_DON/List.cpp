@@ -1,17 +1,20 @@
 #include "List.h"
 #include <iostream>
 using namespace std;
+//KHỞI TẠO
 void Init(LIST& l)
 {
     l.pHead = NULL;
     l.pTail = NULL;
 }
+//KIỂM TRA DANH SÁCH RỖNG
 int IsEmpty(LIST l)
 {
     if (l.pHead != NULL)
         return 1;
     return 0;
 }
+//THÊM NODE VÀO DANH SÁCH
 NODE* GetNode(SINHVIEN x)
 {
     NODE* p = new NODE;
@@ -21,6 +24,7 @@ NODE* GetNode(SINHVIEN x)
     p->pNext = NULL;
     return p;
 }
+//THÊM NODE VÀO ĐẦU DANH SÁCH
 void AddHead(LIST& l, NODE* p)
 {
     if (l.pHead == NULL){
@@ -32,6 +36,7 @@ void AddHead(LIST& l, NODE* p)
         l.pHead = p;
     }
 }
+//THÊM NODE VÀO ĐUÔI DANH SÁCH
 void AddTail(LIST& l, NODE* p)
 {
     if (l.pHead == NULL){
@@ -43,6 +48,7 @@ void AddTail(LIST& l, NODE* p)
         l.pTail = p;
     }
 }
+//NHẬP
 void Input(LIST& l)
 {
     int n;
@@ -63,6 +69,7 @@ void Input(LIST& l)
             AddHead(l, p);
     }
 }   
+//XUẤT
 void Ouput(LIST l)
 {
     cout << "Tên\t|Mssv\t|Điểm Trung Bình\n";
@@ -72,23 +79,22 @@ void Ouput(LIST l)
         p = p->pNext;
     }
 }
+//TÌM 1 SINH VIÊN CÓ TRONG LỚP HAY KHÔNG?
 void Presence(LIST l){
-    cout << "Nhập danh sách điểm danh\n";
-    LIST l1;
-    Input(l1);
-    NODE* p1 = l1.pHead;
-    NODE* p =l.pHead;
-    cout << "Tên\t|Mssv\t|Hiện diện\n";
-    while (p1 != NULL){
-        cout << p1->info.TEN << "\t|" << p1->info.MSSV;
-        while (p != NULL){
-            if ((p1->info.TEN == p->info.TEN) or (p1->info.MSSV == p->info.MSSV)){
-                cout << "\t|Có mặt\n";
-                break;  
-            }
-            p = p->pNext;
+    cout << "Sinh viên cần điểm danh\n";
+    NODE* p1 = new NODE;
+    NODE* p = l.pHead;
+    //Nhập
+    cin.ignore();
+    cout << "Mssv: \n";
+    cin >> p1->info.MSSV;
+    //Tiến hành kiểm tra
+    while (p != NULL){
+        if (p1->info.MSSV == p->info.MSSV){
+            cout <<"Sinh viên " <<  p->info.TEN << " (" << p->info.MSSV << ") có mặt\n";
+            break;    
         }
-        cout << "\t|Vắng mặt\n";
-        p1 = p1->pNext;
+        p = p->pNext;
     }
+    cout << "Sinh viên có mã số " << p1->info.MSSV << " vắng mặt\n";
 }
