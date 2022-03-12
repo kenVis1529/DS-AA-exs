@@ -4,7 +4,7 @@ struct sinhvien
 {
     /* data */
     char TEN[24];
-    char MSSV[10];
+    char MSSV[9];
     float DTB;
 };
 typedef struct sinhvien SINHVIEN;
@@ -29,4 +29,6 @@ void AddHead(LIST& l, NODE* p);
 void AddTail(LIST& l, NODE* p);
 void Input(LIST& l);
 void Ouput(LIST l);
+int compareChar(char, char);
 void Presence(LIST l);
+void DelSV(LIST &l);
