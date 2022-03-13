@@ -35,3 +35,4 @@ void Presence(LIST l);
 void DelSV(LIST &l);
 void List_Greater_5(LIST l);
 void Classify_Grade(LIST l);
+void Sort_DTB(LIST& l);
