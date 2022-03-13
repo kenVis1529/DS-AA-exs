@@ -11,7 +11,7 @@ int main(){
     //5
     List_Greater_5(l);
     //6
-    
+    Classify_Grade(l);
     Output(l);
     return 0;
 }

@@ -34,3 +34,4 @@ int compareChar(char, char);
 void Presence(LIST l);
 void DelSV(LIST &l);
 void List_Greater_5(LIST l);
+void Classify_Grade(LIST l);

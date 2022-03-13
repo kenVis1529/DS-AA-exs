@@ -2,7 +2,7 @@
 #include <iostream>
 #include <time.h> //time()
 #include <stdlib.h> //srand(), rand()
-#include <charconv>
+#include <charconv> //to_chars()
 using namespace std;
 //KHỞI TẠO
 void Init(LIST& l)
@@ -136,18 +136,20 @@ void DelHead(LIST &l)//Sinh viên đầu danh sách
 void DelSV(LIST &l)
 {
     char x[9];
+    int check = 0;
     cout << "Xóa sinh viên có mã số: \n";
     cin.getline(x, 9, '\n');
     NODE* p = l.pHead;
     if (IsEmpty(l) == 1)
     {    
         //Danh sách rỗng
-        cout << "Không thể xóa, danh sách rỗng!\n";
+        cout << "Danh sách rỗng!\n";
     }
     else if (compareChar(x, p->info.MSSV) == 1)
     {
         //Đầu danh sách
         DelHead(l);   
+        check = 1;
         cout << "Đã xóa sinh viên có mã số " <<  p->info.MSSV << endl;  
     }
     else
@@ -158,12 +160,15 @@ void DelSV(LIST &l)
             if (compareChar(p->pNext->info.MSSV, x) == 1)
             {
                 p->pNext = p->pNext->pNext;
+                check = 1;
+                cout << "Đã xóa sinh viên có mã số " <<  p->info.MSSV << endl;
                 break;
             }
             p = p->pNext;
         }
-        cout << "Đã xóa sinh viên có mã số " <<  p->info.MSSV << endl;
     }
+    if (check == 0) 
+        cout << "Không thể xóa!\n";
     cout << endl;
 }
 //LIỆT KÊ THÔNG TIN CÁC SINH VIÊN CÓ DTB >= 5
@@ -176,6 +181,40 @@ void List_Greater_5(LIST l)
     {
         if (p->info.DTB >= 5.0)
             cout << p->info.TEN << "\t|" << p->info.MSSV << "\t|" << p->info.DTB << endl;
+        p = p->pNext;
+    }
+    cout << endl;
+}
+//XẾP LOẠI VÀ IN RA THÔNG TIN CỦA TỪNG SINH VIÊN
+//Xếp loại 1 sinh viên
+string Classification(float grade)
+{
+    string cl;
+    if (grade <= 3.6)
+        cl = "Loại yếu";
+    else if (grade >= 5.0 && grade < 6.5)
+        cl = "Loại trung bình";
+    else if (grade < 7.0)
+        cl = "Loại trung bình khá";
+    else if (grade < 8.0)
+        cl = "Loại khá";
+    else if (grade < 9.0)
+        cl = "Loại giỏi";
+    else if (grade <= 10.0)
+        cl = "Loại xuất sắc";
+    else cl = "Không";
+    return cl;
+}
+//Xép loại và in thông tin sinh viên
+void Classify_Grade(LIST l)
+{
+    NODE* p = l.pHead;
+    cout << "Thông tin sinh viên và xếp loại: \n";
+    cout << "Tên\t|MSSV\t\t|Điểm\t|Xếp loại\n";
+    while (p != NULL)
+    {
+
+        cout << p->info.TEN << "\t|" << p->info.MSSV << "\t|" << p->info.DTB << "\t|" << Classification(p->info.DTB) << endl;
         p = p->pNext;
     }
     cout << endl;
