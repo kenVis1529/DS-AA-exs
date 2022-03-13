@@ -2,8 +2,8 @@
 
 int main(){
     LIST l;
+    //2
     Input(l);
-    Output(l);
     //3
     Presence(l);
     //4

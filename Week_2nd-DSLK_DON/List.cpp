@@ -75,7 +75,7 @@ void Input(LIST& l)
         cin >> x.DTB;
         NODE* p = GetNode(x);
         if (p != NULL)
-            AddTail(l, p);
+            AddHead(l, p);
         cout << endl;
     }
 }   
