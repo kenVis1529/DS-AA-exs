@@ -154,11 +154,7 @@ void DelSV(LIST &l)
     }
     else if (x == "")
     {
-<<<<<<< HEAD
         cout << "Không xóa sinh viên nào.\n";
-=======
-        cout << "Không xóa sinh viên nào.\n"
->>>>>>> 4c71c146ab4be715cc70241c1c744ac1c88e60f6
     }
     else if (compareChar(x, p->info.MSSV) == 1)
     {
@@ -274,7 +270,6 @@ void Sort_DTB(LIST& l)
         p = p->pNext;
     }
     cout << endl;
-<<<<<<< HEAD
 }
 //CHÈN 1 SV VÀO DANH SÁCH SV TĂNG THEO ĐIỂM TB NÓI TRÊN
 void Insert(LIST&l, NODE* p1)
@@ -323,6 +318,4 @@ void InsertSV(LIST&l)
     //Chèn SV mới
     Insert(l, p1);
     cout << endl;
-=======
->>>>>>> 4c71c146ab4be715cc70241c1c744ac1c88e60f6
 }
