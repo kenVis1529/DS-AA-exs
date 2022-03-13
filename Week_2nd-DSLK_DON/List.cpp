@@ -10,6 +10,7 @@ void Init(LIST& l)
     l.pHead = NULL;
     l.pTail = NULL;
 }
+//-------------------------------
 //KIỂM TRA DANH SÁCH RỖNG
 int IsEmpty(LIST l)
 {
@@ -17,6 +18,7 @@ int IsEmpty(LIST l)
         return 1;
     return 0;
 }
+//-------------------------------
 //THÊM NODE VÀO DANH SÁCH
 NODE* GetNode(SINHVIEN x)
 {
@@ -27,6 +29,7 @@ NODE* GetNode(SINHVIEN x)
     p->pNext = NULL;
     return p;
 }
+//-------------------------------
 //THÊM NODE VÀO ĐẦU DANH SÁCH
 void AddHead(LIST& l, NODE* p)
 {
@@ -39,6 +42,7 @@ void AddHead(LIST& l, NODE* p)
         l.pHead = p;
     }
 }
+//-------------------------------
 //THÊM NODE VÀO ĐUÔI DANH SÁCH
 void AddTail(LIST& l, NODE* p)
 {
@@ -47,19 +51,11 @@ void AddTail(LIST& l, NODE* p)
     }
     else
     {
-        p->pNext = NULL;
+        l.pTail->pNext = p;
         l.pTail = p;
     }
 }
-//CHỌN NGẪU NHIÊN MSSV
-// char RandomMSSV()
-// {
-//     int min = 20000000, max = 30000000;
-//     char mssv[9];
-//     srand(time(NULL));
-//     to_chars(mssv, 9, rand() % (max - min + 1) + min);
-//     return mssv;
-// }
+//-------------------------------
 //NHẬP
 void Input(LIST& l)
 {
@@ -79,10 +75,11 @@ void Input(LIST& l)
         cin >> x.DTB;
         NODE* p = GetNode(x);
         if (p != NULL)
-            AddHead(l, p);
+            AddTail(l, p);
         cout << endl;
     }
 }   
+//-------------------------------
 //XUẤT
 void Output(LIST l)
 {
@@ -95,6 +92,7 @@ void Output(LIST l)
     }
     cout << endl;
 }
+//-------------------------------
 //SO SÁNH 2 CHUỖI KÍ TỰ
 int compareChar(char a[9], char b[9])
 {
@@ -106,6 +104,7 @@ int compareChar(char a[9], char b[9])
     }
     return 1;
 }
+//-------------------------------
 //TÌM 1 SINH VIÊN CÓ TRONG LỚP HAY KHÔNG?
 void Presence(LIST l){
     cout << "Sinh viên cần điểm danh\n";
@@ -128,10 +127,18 @@ void Presence(LIST l){
     if (check == 0) 
         cout << "Sinh viên có mã số " << maSSV << " vắng mặt\n\n";
 }
+//-------------------------------
 //XÓA MỘT SINH VIÊN CÓ MSSV BẰNG X ( X NHẬP TỪ BÀN PHÍM)
-void DelHead(LIST &l)//Sinh viên đầu danh sách
+int DelHead(LIST &l)//Sinh viên đầu danh sách
 {
-    l.pHead = l.pHead->pNext;
+    if (l.pHead != NULL)
+    {
+        NODE* p = l.pHead;
+        l.pHead = l.pHead->pNext;
+        delete p;
+        return 1;
+    }
+    return 0;
 }
 void DelSV(LIST &l)
 {
@@ -145,11 +152,14 @@ void DelSV(LIST &l)
         //Danh sách rỗng
         cout << "Danh sách rỗng!\n";
     }
+    else if (x == "")
+    {
+        cout << "Không xóa sinh viên nào.\n";
+    }
     else if (compareChar(x, p->info.MSSV) == 1)
     {
         //Đầu danh sách
-        DelHead(l);   
-        check = 1;
+        check = DelHead(l);   
         cout << "Đã xóa sinh viên có mã số " <<  p->info.MSSV << endl;  
     }
     else
@@ -159,7 +169,9 @@ void DelSV(LIST &l)
         {
             if (compareChar(p->pNext->info.MSSV, x) == 1)
             {
+                NODE* p1 = p->pNext;
                 p->pNext = p->pNext->pNext;
+                delete p1;
                 check = 1;
                 cout << "Đã xóa sinh viên có mã số " <<  p->info.MSSV << endl;
                 break;
@@ -168,9 +180,10 @@ void DelSV(LIST &l)
         }
     }
     if (check == 0) 
-        cout << "Không thể xóa!\n";
+        cout << "Không có sinh viên trong danh sách\n";
     cout << endl;
 }
+//-------------------------------
 //LIỆT KÊ THÔNG TIN CÁC SINH VIÊN CÓ DTB >= 5
 void List_Greater_5(LIST l)
 {
@@ -185,14 +198,18 @@ void List_Greater_5(LIST l)
     }
     cout << endl;
 }
+//-------------------------------
 //XẾP LOẠI VÀ IN RA THÔNG TIN CỦA TỪNG SINH VIÊN
+
 //Xếp loại 1 sinh viên
 string Classification(float grade)
 {
     string cl;
     if (grade <= 3.6)
         cl = "Loại yếu";
-    else if (grade >= 5.0 && grade < 6.5)
+    else if (grade < 5.0)
+        cl = "Không có xếp loại";// Không có xếp loại
+    else if (grade < 6.5)
         cl = "Loại trung bình";
     else if (grade < 7.0)
         cl = "Loại trung bình khá";
@@ -202,7 +219,6 @@ string Classification(float grade)
         cl = "Loại giỏi";
     else if (grade <= 10.0)
         cl = "Loại xuất sắc";
-    else cl = "Không";
     return cl;
 }
 //Xép loại và in thông tin sinh viên
@@ -217,5 +233,90 @@ void Classify_Grade(LIST l)
         cout << p->info.TEN << "\t|" << p->info.MSSV << "\t|" << p->info.DTB << "\t|" << Classification(p->info.DTB) << endl;
         p = p->pNext;
     }
+    cout << endl;
+}
+//-------------------------------
+//SẮP XẾP VÀ IN RA DANH SÁCH SINH VIÊN TĂNG THEO ĐIỂM TRUNG BÌNH.
+//Sắp xếp 
+void Sort(LIST& l)
+{
+    NODE* p, *p1, *min;
+    p = l.pHead;
+    while (p != l.pTail)
+    {
+        min = p;
+        p1 = p->pNext;
+        while (p1 != NULL)
+        {
+            if (min->info.DTB > p1->info.DTB)
+                min = p1;
+            p1 = p1->pNext;
+        }
+        SINHVIEN temp = p->info;
+        p->info = min->info;
+        min->info = temp;
+        p = p->pNext;
+    }
+}
+//In danh sách
+void Sort_DTB(LIST& l)
+{
+    Sort(l);
+    cout << "Thông tin sinh viên theo thứ tự DTB tăng dần: \n";
+    cout << "Tên\t|MSSV\t\t|Điểm\n";
+    NODE* p = l.pHead;
+    while (p != NULL)
+    {
+        cout << p->info.TEN << "\t|" << p->info.MSSV << "\t|" << p->info.DTB << endl;
+        p = p->pNext;
+    }
+    cout << endl;
+}
+//CHÈN 1 SV VÀO DANH SÁCH SV TĂNG THEO ĐIỂM TB NÓI TRÊN
+void Insert(LIST&l, NODE* p1)
+{
+    //Tìm vị trí chèn trong danh sách
+    NODE* p, *q;
+    p = l.pHead;
+    if (p == NULL)
+    {
+        AddHead(l, p1);
+    }
+    else
+    {
+        while (p != l.pTail)
+        {
+            q = p->pNext;
+            if (p->info.DTB <= p1->info.DTB && p1->info.DTB <= q->info.DTB)
+                break;
+            p = p->pNext;
+        }
+        p1->pNext = p->pNext;
+        p->pNext = p1;
+        if (p == l.pTail) 
+            l.pTail = p1;
+    }
+}
+void InsertSV(LIST&l)
+{
+    //Nhập info 
+    //Chèn SV mới 
+    //  Tìm vị trí để chèn (prev.dtb < x.dtb < next.dtb)
+    //  Thêm SV mới ngay sau prev
+    ////////////////////////
+
+    //Nhập thông tin SV mới
+    SINHVIEN x;
+    cin.ignore();
+    cout << "Nhập thông tin sinh viên mới: \n";
+    cout << "Nhập tên: ";
+    cin.getline(x.TEN, 24);
+    cout << "Nhập mssv: ";
+    cin.getline(x.MSSV, 9);
+    cout << "Nhập điểm trung bình: ";
+    cin >> x.DTB;
+    NODE* p1 = GetNode(x);
+    //Chèn SV mới
+    Insert(l, p1);
     cout << endl;
 }
