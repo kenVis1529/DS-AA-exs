@@ -62,7 +62,6 @@ void Input(LIST& l)
     int n;
     cout << "Nhap n = ";
     cin >> n;
-    Init(l);
     for (int i = 0; i < n; i++){
         SINHVIEN x;
         cin.ignore();

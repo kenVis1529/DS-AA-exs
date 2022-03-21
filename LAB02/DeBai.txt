@@ -1,0 +1,20 @@
+6. Giả sử cho một danh sách hàng hóa bao gồm nhiều mặt hàng, trong đó mỗi mặt hàng có các thông tin:
+
+- Tên mặt hàng
+
+- Giá mặt hàng
+
+- Số lượng còn trong kho
+
+Hãy thực hiện các yêu cầu sau:
+
+a.   Khai báo danh dách liên kết  lưu danh sách các mặt hàng theo thông tin như mô tả trên.
+b.   Viết hàm sắp xếp danh sách mặt hàng ở câu a theo giá mặt hàng tăng dần, nếu cùng giá thì sắp xếp theo tên mặt hàng và hiển thị lên màn hình.
+c.   Viết hàm nhập vào 2 số nguyên x, y (x<y), hiển thị lên màn hình danh  sách các mặt hàng có số lượng trong kho lớn hơn x và nhỏ hơn y.
+ 
+
+7. Giả sử cho một danh sách liên kết kép lưu các số nguyên. Hãy thực hiện các yêu cầu sau:
+
+a.   Viết hàm tạo ra một danh sách 50.000 số nguyên ngẫu nhiên.
+b.   Viết hàm tính giá trị trung bình của các số nguyên trong  câu a.
+c.    Viết hàm kiểm tra xem danh sách các số nguyên trong câu a có thứ tự không? (tăng dần hoặc giảm dần)
