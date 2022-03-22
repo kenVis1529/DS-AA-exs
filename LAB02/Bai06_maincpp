@@ -1,8 +1,0 @@
-#include "Bai06.cpp"
-
-int main()
-{
-    LIST l;
-    Init(l);
-    Input(l);
-}

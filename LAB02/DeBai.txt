@@ -8,9 +8,9 @@
 
 Hãy thực hiện các yêu cầu sau:
 
-a.   Khai báo danh dách liên kết  lưu danh sách các mặt hàng theo thông tin như mô tả trên.
+a.   Khai báo danh sách liên kết lưu danh sách các mặt hàng theo thông tin như mô tả trên.
 b.   Viết hàm sắp xếp danh sách mặt hàng ở câu a theo giá mặt hàng tăng dần, nếu cùng giá thì sắp xếp theo tên mặt hàng và hiển thị lên màn hình.
-c.   Viết hàm nhập vào 2 số nguyên x, y (x<y), hiển thị lên màn hình danh  sách các mặt hàng có số lượng trong kho lớn hơn x và nhỏ hơn y.
+c.   Viết hàm nhập vào 2 số nguyên x, y (x<y), hiển thị lên màn hình danh sách các mặt hàng có số lượng trong kho lớn hơn x và nhỏ hơn y.
  
 
 7. Giả sử cho một danh sách liên kết kép lưu các số nguyên. Hãy thực hiện các yêu cầu sau:
@@ -18,3 +18,36 @@ c.   Viết hàm nhập vào 2 số nguyên x, y (x<y), hiển thị lên màn h
 a.   Viết hàm tạo ra một danh sách 50.000 số nguyên ngẫu nhiên.
 b.   Viết hàm tính giá trị trung bình của các số nguyên trong  câu a.
 c.    Viết hàm kiểm tra xem danh sách các số nguyên trong câu a có thứ tự không? (tăng dần hoặc giảm dần)
+
+8.    Giả sử cho hai danh sách liên kết kép lưu các số nguyên, hãy hiển thị lên màn hình:
+
+a. Phần giao của hai danh sách liên kết.
+
+b. Phần hội của hai danh sách liên kết.
+
+ 
+
+9. Giả sử cho một danh sách liên kết lưu dữ liệu là các số nguyên, hãy viết chương trình để đảo ngược danh sách liên kết trong hai trường hợp :
+
+a.   Đảo ngược thành phần dữ liệu.
+b.   Thay đổi liên kết giữa các phần tử trong danh sách
+
+10.  Giả sử người ta muốn quản lý việc bán vé tham dự buổi hòa nhạc của một dàn nhạc nổi tiếng với yêu cầu là không có ai được phép mua vé nhiều hơn một lần nhằm tạo cơ hội tham dự cho nhiều người và mỗi người chỉ được mua tối đa 2 vé. Để làm việc này, ban tổ chức thực hiện việc phát phiếu đăng ký cho những người muốn mua vé.
+
+Thông tin trên phiếu đăng ký bao gồm: họ tên người mua vé, số chứng minh nhân dân, địa chỉ, số lượng vé đăng ký mua. Nếu người nào đó thực hiện việc đăng ký hai lần thì phiếu đăng ký lần hai sẽ bị loại bỏ.
+
+Hãy viết chương trình cho phép:
+
+a.   Thực hiện duyệt bán vé theo yêu cầu trên khi ban tổ chức phát ra 10.000 vé đăng ký, biết rằng số ghế ngồi là 15.000 ghế, chương trình sẽ chỉ còn giải quyết duyệt bán vé khi còn ghế trống.
+b.   Hiển thị lên màn hình danh sách người mua vé và số vé tương ứng được mua.
+ 
+
+11. Giả sử tại một trường học X, người ta có một tập tin dữ liệu, lưu thông tin tất cả các học sinh trong trường. Tập tin bao gồm nhiều bản ghi (record), trong đó mỗi bản ghi lưu thông tin: họ và tên học sinh, mã lớp (ví dụ :7a, 7b, 8c, 9a), điểm trung bình.
+
+Hãy thực hiện các yêu cầu sau :
+
+a. Tạo ra cho mỗi lớp một danh sách liên kết lưu thông tin tất cả học sinh của lớp ấy.
+
+b.Sắp xếp danh sách các lớp trong câu a theo họ và tên  học sinh
+
+c. Hiển thị lên màn hình danh sách các lớp trong câu b.

@@ -28,8 +28,18 @@ NODE* getNode(MH x);
 void addHead(LIST &l, NODE* p);
 void addTail(LIST &l, NODE* p);
 void Input(LIST& l);
+void InputRandom(LIST& l);
 void Output(LIST l);
-void sortGia(LIST& l);//Xếp theo giá
-int soSanhChuCai(string, string);//So sánh tên
-void sortTen(LIST& l);//Xếp theo tên
-void sort(LIST& l);//Sắp xếp tăng dần theo giá, cùng giá thì xếp theo tên
+//Random int
+int randomInt(int min, int max);
+int* taoMangSo(int min, int max);
+void traoMangSo(int *arr, int n);
+//Random string
+string randomTen();
+//Xắp sếp
+int sortGia(LIST& l);//Xếp theo giá
+int soSanhTen(string, string);//So sánh tên
+int sortTen(LIST& l);//Xếp theo tên
+int sort(LIST& l);//Sắp xếp tăng dần theo giá, cùng giá thì xếp theo tên
+//Lọc hàng theo giá
+LIST filterSoLuong(LIST l, int min, int max);//In ra mặt hàng có số lượng > min and < max.
