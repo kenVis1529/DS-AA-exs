@@ -32,8 +32,6 @@ void InputRandom(LIST& l);
 void Output(LIST l);
 //Random int
 int randomInt(int min, int max);
-int* taoMangSo(int min, int max);
-void traoMangSo(int *arr, int n);
 //Random string
 string randomTen();
 //Xắp sếp

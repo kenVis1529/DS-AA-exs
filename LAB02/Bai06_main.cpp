@@ -16,11 +16,11 @@ int main()
     cout << "////////////////////////////////////////////////////////////////\n\n";
     while (1)
     {
-        cout << "Chọn một chức năng: "; 
+        cout << "Chọn một chức năng: \n"; 
         cin >> n;
         while (n < 1 || n > 4)
         {    
-            cout << "Chọn lại chức năng: "; 
+            cout << "Chọn lại chức năng: \n"; 
             cin >> n;
         }
         
@@ -34,10 +34,10 @@ int main()
             break;
         case 2:
             if (isEmpty(l) == 1)
-               cout << "Chưa khởi tạo danh sách.";
+               cout << "Chưa khởi tạo danh sách.\n";
             else    
             {
-                cout << "Sắp xếp danh sách mặt hàng";
+                cout << "Sắp xếp danh sách mặt hàng\n";
                 sort(l);
                 Output(l);
                 cout << endl;
@@ -45,7 +45,7 @@ int main()
             break;
         case 3:
             if (isEmpty(l) == 1)
-                cout << "Chưa khởi tạo danh sách.";
+                cout << "Chưa khởi tạo danh sách.\n";
             else 
             {
                 LIST l1;

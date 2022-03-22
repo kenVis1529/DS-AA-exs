@@ -63,11 +63,11 @@ void Input(LIST& l)
 }
 void InputRandom(LIST& l)
 {
+    Init(l);
     int n;
     MatHang x;
     cout << "Nhập n:\n";
     cin >> n;
-
     for (int i = 0; i < n; i++)
     {
         string ten = randomTen();
@@ -96,23 +96,11 @@ void Output(LIST l)
 }
 int randomInt(int min, int max)
 {
-    return rand() % (max - min + 1) + min;
-}
-int* taoMangSo(int min, int max)
-{
-    int length = max - min + 1;
-    int *x = new int[length];
-    for (int i = 0; i < length; i++)
-    {
-        x[i] = min++;
-    }
-    return x;
-}
-void traoMangSo(int *arr, int n)
-{
-    unsigned seed = 0;
-
-    shuffle(arr, arr + n, default_random_engine(seed));
+    random_device device;
+    mt19937 generator(device());
+    uniform_int_distribution<int> distribution(min,max);
+    return distribution(generator);
+    // return rand() % (max - min + 1) + min;
 }
 string randomTen()
 {
@@ -144,9 +132,9 @@ int sortGia(LIST& l)
                 min = q;
             q = q->pNext;
         }
-        NODE* temp = min;
-        min->pNext = p->pNext;
-        p->pNext = temp->pNext;
+        MH temp = min->info;
+        min->info = p->info;
+        p->info = temp;
         p = p->pNext;
     }
     return 1;
@@ -181,9 +169,9 @@ int sortTen(LIST& l)
                     min = q;
                 q = q->pNext;
             }
-            NODE* temp = min;
-            min->pNext = p->pNext;
-            p->pNext = temp->pNext;
+            MH temp = min->info;
+            min->info = p->info;
+            p->info = temp;
             p = p->pNext;
         }       
         return 1;
@@ -198,6 +186,7 @@ int sort(LIST& l)
         sortGia(l);
         NODE *p, *q;
         p = l.pHead;
+        if (l.pHead == l.pTail) return 1;
         while (p != l.pTail)
         {
             q = p->pNext;
@@ -205,9 +194,9 @@ int sort(LIST& l)
             {
                 if (soSanhTen(p->info.ten, q->info.ten) == 1)
                 {
-                    NODE* temp = p;
-                    p->pNext = q->pNext;
-                    q->pNext = temp->pNext;
+                    MH temp = p->info;
+                    p->info = q->info;
+                    q->info = temp;
                 }
                 q = q->pNext;
             }
