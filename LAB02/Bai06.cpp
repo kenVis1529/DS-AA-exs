@@ -215,7 +215,7 @@ LIST filterSoLuong(LIST l, int min, int max)
     {
         if (p->info.soLuongTonKho > min && p->info.soLuongTonKho < max)
         {
-            addTail(l, p);
+            addTail(l1, p);
         }
         p = p->pNext;
     }
