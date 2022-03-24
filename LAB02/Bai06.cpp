@@ -100,7 +100,6 @@ int randomInt(int min, int max)
     mt19937 generator(device());
     uniform_int_distribution<int> distribution(min,max);
     return distribution(generator);
-    // return rand() % (max - min + 1) + min;
 }
 string randomTen()
 {
