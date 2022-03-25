@@ -49,10 +49,10 @@ int randomInt(int min, int max)
 void initInt(LIST& l)
 {
     Init(l);
-    int n = 50000, x;
+    int n = 5, x;
     for (int i = 0; i < n; i++)
     {
-        x = randomInt(0, 50000);
+        x = randomInt(0, 30);
         NODE* p = getNode(x);
         if (p != NULL)
             addTail(l, p);

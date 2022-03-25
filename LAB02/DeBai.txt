@@ -1,17 +1,3 @@
-7. Giả sử cho một danh sách liên kết kép lưu các số nguyên. Hãy thực hiện các yêu cầu sau:
-
-a.   Viết hàm tạo ra một danh sách 50.000 số nguyên ngẫu nhiên.
-b.   Viết hàm tính giá trị trung bình của các số nguyên trong  câu a.
-c.   Viết hàm kiểm tra xem danh sách các số nguyên trong câu a có thứ tự không? (tăng dần hoặc giảm dần)
-
-8.    Giả sử cho hai danh sách liên kết kép lưu các số nguyên, hãy hiển thị lên màn hình:
-
-a. Phần giao của hai danh sách liên kết.
-
-b. Phần hội của hai danh sách liên kết.
-
- 
-
 9. Giả sử cho một danh sách liên kết lưu dữ liệu là các số nguyên, hãy viết chương trình để đảo ngược danh sách liên kết trong hai trường hợp :
 
 a.   Đảo ngược thành phần dữ liệu.
