@@ -108,6 +108,17 @@ string randomString()
     strcpy_s(s, temp.length() + 1, temp.c_str());
     return s;
 }
+int search(LIST l, string ten, string cmnd)
+{
+    NODE* p = l.pHead;
+    while (p != NULL)
+    {
+        if (p->info.hoTenNguoiMua == ten || p->info.cmnd == cmnd)
+            return 1;
+        p = p->pNext;
+    }
+    return 0;
+}
 void initPhieuDK(LIST& l, int n)
 {
     //10000 vé đăng kí
@@ -117,10 +128,15 @@ void initPhieuDK(LIST& l, int n)
     int soVe, tongVe = 0, tongNguoiDK = 0;
     for (int i = 0; i < n; i++)
     {
-        hoTen = randomStringLetters();
-        cmnd = randomStringDigits();
-        diaChi = randomString();
-        soVe = randomInt(1, 2);
+        //Đảm bảo không ai đăng kí 2 lần
+        do
+        {
+            hoTen = randomStringLetters();
+            cmnd = randomStringDigits();
+            diaChi = randomString();
+            soVe = randomInt(1, 2);
+        } while (search(l, hoTen, cmnd) == 1);
+    
         //Đảm bảo không quá số 15000 người ngồi
         if (tongNguoiDK + 1 <= 15000)
         {

@@ -27,20 +27,21 @@ struct list
     NODE* pTail;
 };
 typedef struct list LIST;
-void Init(LIST &l);
-int isEmpty(LIST l);
+void Init(LIST&);
+int isEmpty(LIST);
 NODE* getNode(string, string, string, int);
 // void addHead(LIST &l, NODE* p);
-void addTail(LIST &l, NODE* p);
+void addTail(LIST&, NODE*);
 void Output(LIST l);
 //Random số vé đăng kí mua
-int randomInt(int min, int max);
+int randomInt(int, int);
 //Random tên
 string randomStringLetters();
 //Random cmnd
 string randomStringDigits();
 //Random địa chỉ
 string randomString();
-void initPhieuDK(LIST& l, int n);
+int search(LIST, string, string);
+void initPhieuDK(LIST&, int);
 
 
