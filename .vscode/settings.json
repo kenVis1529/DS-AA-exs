@@ -11,6 +11,10 @@
         "xutility": "cpp",
         "random": "cpp",
         "limits": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "iterator": "cpp",
+        "xtree": "cpp",
+        "cstring": "cpp",
+        "string": "cpp"
     }
 }
