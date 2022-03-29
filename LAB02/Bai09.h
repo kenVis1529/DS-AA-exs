@@ -4,6 +4,7 @@ using namespace std;
 struct node
 {
     int info;
+    node* pPrev;
     node* pNext;
 };
 typedef struct node NODE;
@@ -16,11 +17,11 @@ typedef struct list LIST;
 void Init(LIST &l);
 int isEmpty(LIST l);
 NODE* getNode(int x);
+void addHead(LIST &l, NODE* p);
 void addTail(LIST &l, NODE* p);
+void Output(LIST l);
 int randomInt(int min, int max);
 void initList(LIST& l, int n);
-void Output(LIST l);
-int checkVal(LIST l, int x);
-int searchInt(LIST l, int x);
-LIST giaoHaiDanhSach(LIST a, LIST b);
-LIST hoiHaiDanhSach(LIST a, LIST b);
+int lengthList(LIST l);
+void daoNguocDuLieu(LIST& l);
+void thayDoiLienKet(LIST& l);
